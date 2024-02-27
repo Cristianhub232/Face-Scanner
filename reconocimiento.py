@@ -17,6 +17,14 @@ dir_faces = 'att_faces/orl_faces'
 #Tamaño para reducir a miniaturas las fotografias
 size = 4
 
+#colores disponibles
+
+colors = [(255,0,0),(0,0,255),(0,255,0)]
+
+#counter
+
+id_counter = 1
+
 # Crear una lista de imagenes y una lista de nombres correspondientes
 (images, lables, names, id) = ([], [], {}, 0)
 for (subdirs, dirs, files) in os.walk(dir_faces):
@@ -67,7 +75,8 @@ while True:
         prediction = model.predict(face_resize)
         
          #Dibujamos un rectangulo en las coordenadas del rostro
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 3)
+        
+        cv2.rectangle(frame, (x, y), (x + w, y + h), colors[(id_counter - 1) %len(colors)], 3)
         
         # Escribiendo el nombre de la cara reconocida
         # La variable cara tendra el nombre de la persona reconocida

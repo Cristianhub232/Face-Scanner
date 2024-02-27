@@ -1,12 +1,12 @@
-#OpenCV module
 import cv2
-#Modulo para leer directorios y rutas de archivos
 import os
-#OpenCV trabaja con arreglos de numpy
 import numpy
-#Obtener el nombre de la persona que estamos capturando
 import sys
-nombre = sys.argv[1]
+
+if len(sys.argv) > 1:
+    nombre = sys.argv[1]
+else:
+    nombre = "leonardo"
 
 #Directorio donde se encuentra la carpeta con el nombre de la persona
 dir_faces = 'att_faces/orl_faces'
